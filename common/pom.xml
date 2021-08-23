@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>qconfig</artifactId>
-        <groupId>com.okracode.qconfig</groupId>
-        <version>0.5.0-SNAPSHOT-1.0.0</version>
+        <groupId>com.okracode.wx</groupId>
+        <version>0.5.0-SNAPSHOT-0.0.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <packaging>jar</packaging>

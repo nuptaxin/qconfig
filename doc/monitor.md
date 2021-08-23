@@ -38,7 +38,7 @@ QConfig使用SPI的机制提供接入，如果要接入第三方系统，可以�
 
    ```
    <dependency>
-     <groupId>com.okracode.qconfig</groupId>
+     <groupId>com.okracode.wx</groupId>
      <artifactId>qconfig-client</artifactId>
      <version>{version}</version>
      <optional>true</optional>

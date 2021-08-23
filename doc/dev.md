@@ -14,7 +14,7 @@
 
    ```xml
    <dependency>
-     <groupId>com.okracode.qconfig</groupId>
+     <groupId>com.okracode.wx</groupId>
      <artifactId>qconfig-client</artifactId>
      <version>{Version}</version>
      <optional>true</optional>
