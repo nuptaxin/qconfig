@@ -20,3 +20,11 @@
 * [开发](doc/dev.md)
 * [监控](doc/monitor.md)
 * [FAQ](doc/faq.md)
+
+* 打包发布相关
+  * 版本号升级
+  > mvn versions:set -DgenerateBackupPoms=false -DnewVersion=0.5.0-SNAPSHOT-1.0.0
+  * 打包
+  > mvn clean package -Dmaven.test.skip=true -U
+  * 部署(激活release标签)
+  > mvn clean deploy -Dmaven.test.skip=true -P release
