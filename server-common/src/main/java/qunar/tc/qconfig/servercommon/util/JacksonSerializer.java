@@ -74,7 +74,7 @@ public class JacksonSerializer {
         }
     }
 
-    public <T> T deSerialize(byte[] content, TypeReference typeReference) {
+    public <T> T deSerialize(byte[] content, TypeReference<T> typeReference) {
         try {
             return mapper.readValue(content, typeReference);
         } catch (IOException e) {
@@ -83,7 +83,7 @@ public class JacksonSerializer {
         }
     }
 
-    public <T> T deSerialize(String content, TypeReference typeReference) {
+    public <T> T deSerialize(String content, TypeReference<T> typeReference) {
         try {
             return mapper.readValue(content, typeReference);
         } catch (IOException e) {
