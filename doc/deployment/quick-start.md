@@ -122,83 +122,28 @@ Quick Start只是用来帮助大家快速体验QConfig项目，具体实际使�
 ## 4.1 使用样例项目
 
 ### 4.1.1 查看样例配置
-1. 打开http://localhost:8070
+1. 打开http://localhost:8081/webapp/page/index.html#/qconfig
 
-> Quick Start集成了[Spring Security简单认证](zh/development/portal-how-to-implement-user-login-function#实现方式一：使用QConfig提供的spring-security简单认证)，更多信息可以参考[Portal 实现用户登录功能](zh/development/portal-how-to-implement-user-login-function)
+2. 输入用户名admin，密码123456后登录
 
-<img src="https://github.com/nobodyiam/QConfig-build-scripts/raw/master/images/QConfig-login.png" alt="登录" width="640px">
-
-2. 输入用户名QConfig，密码admin后登录
-
-![首页](https://raw.githubusercontent.com/nobodyiam/QConfig-build-scripts/master/images/QConfig-sample-home.png)
-
-3. 点击SampleApp进入配置界面，可以看到当前有一个配置timeout=100
-   ![配置界面](https://raw.githubusercontent.com/nobodyiam/QConfig-build-scripts/master/images/sample-app-config.png)
-
-> 如果提示`系统出错，请重试或联系系统负责人`，请稍后几秒钟重试一下，因为通过Eureka注册的服务有一个刷新的延时。
+3. 点击qconfig进入配置界面，可以看到当前有一个多个配置文件
 
 ### 4.1.2 运行客户端程序
-我们准备了一个简单的[Demo客户端](https://github.com/ctripcorp/QConfig/blob/master/QConfig-demo/src/main/java/com/ctrip/framework/QConfig/demo/api/SimpleQConfigConfigDemo.java)来演示从QConfig配置中心获取配置。
+我们准备了一个简单的[Demo客户端](../../demo), appCode=b_qconfig_test来演示从QConfig配置中心获取配置。
 
-程序很简单，就是用户输入一个key的名字，程序会输出这个key对应的值。
+程序很简单，就是从本地或者配置中心读取各种配置文件。
 
-如果没找到这个key，则输出undefined。
+获取token：访问 http://localhost:8081/webapp/page/index.html#/qconfig/appinfo 输入应用appCode获取token，并配置到app-info.properties文件中
+添加配置文件：
+http://localhost:8081/webapp/page/index.html#/qconfig/b_qconfig_test/dev:?groupName=b_qconfig_test
+添加配置文件, 并存储适当的配置内容（如果想配置其它文件，先删除qconfig_test目录下对应的配置文件，然后在配置中心添加）： dcdc.properties
 
-同时，客户端还会监听配置变化事件，一旦有变化就会输出变化的配置信息。
-
-运行`./demo.sh client`启动Demo客户端，忽略前面的调试信息，可以看到如下提示：
+运行`./demo.sh client`启动Demo客户端：
 ```sh
-QConfig Config Demo. Please input key to get the value. Input quit to exit.
->
+java -jar /Users/renzhengxin/.m2/repository/org/eclipse/jetty/jetty-runner/9.4.9.v20180320/jetty-runner-9.4.9.v20180320.jar --port 8082 demo/target/ROOT.war
 ```
-输入`timeout`，会看到如下信息：
-```sh
-> timeout
-> [SimpleQConfigConfigDemo] Loading key : timeout with value: 100
-```
-
-> 如果运行客户端遇到问题，可以通过修改`client/log4j2.xml`中的level为DEBUG来查看更详细日志信息
-> ```xml
-> <logger name="com.ctrip.framework.QConfig" additivity="false" level="trace">
->     <AppenderRef ref="Async" level="DEBUG"/>
-> </logger>
-> ```
+看到控制台输出use remote file, name=dcdc.properties，以及配置文件中的所有内容时，证明成功。
 
 ### 4.1.3 修改配置并发布
 
-1. 在配置界面点击timeout这一项的编辑按钮
-   ![编辑配置](https://raw.githubusercontent.com/nobodyiam/QConfig-build-scripts/master/images/sample-app-modify-config.png)
-
-2. 在弹出框中把值改成200并提交
-   ![配置修改](https://raw.githubusercontent.com/nobodyiam/QConfig-build-scripts/master/images/sample-app-submit-config.png)
-
-3. 点击发布按钮，并填写发布信息
-   ![发布](https://raw.githubusercontent.com/nobodyiam/QConfig-build-scripts/master/images/sample-app-release-config.png)
-
-![发布信息](https://raw.githubusercontent.com/nobodyiam/QConfig-build-scripts/master/images/sample-app-release-detail.png)
-
-### 4.1.4 客户端查看修改后的值
-如果客户端一直在运行的话，在配置发布后就会监听到配置变化，并输出修改的配置信息：
-```sh
-[SimpleQConfigConfigDemo] Changes for namespace application
-[SimpleQConfigConfigDemo] Change - key: timeout, oldValue: 100, newValue: 200, changeType: MODIFIED
-```
-
-再次输入`timeout`查看对应的值，会看到如下信息：
-```sh
-> timeout
-> [SimpleQConfigConfigDemo] Loading key : timeout with value: 200
-```
-
-## 4.2 使用新的项目
-### 4.2.1 应用接入QConfig
-这部分可以参考[Java应用接入指南](../usage/java-sdk-user-guide)
-
-### 4.2.2 运行客户端程序
-由于使用了新的项目，所以客户端需要修改appId信息。
-
-编辑`client/META-INF/app.properties`，修改app.id为你新创建的app id。
-```properties
-app.id=你的appId
-```
-运行`./demo.sh client`启动Demo客户端即可。
+1. http://localhost:8081/webapp/page/index.html#/qconfig/b_qconfig_test/dev
