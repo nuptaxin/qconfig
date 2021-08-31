@@ -7,7 +7,7 @@
     <groupId>com.okracode.qconfig</groupId>
     <artifactId>qconfig</artifactId>
     <packaging>pom</packaging>
-    <version>0.5.0-SNAPSHOT-1.0.0</version>
+    <version>0.5.0-SNAPSHOT-1.0.1</version>
     <name>qconfig</name>
     <description>config management system</description>
     <url>https://github.com/nuptaxin/qconfig</url>
@@ -37,10 +37,10 @@
         <file_encoding>UTF-8</file_encoding>
 
         <org.springframework.version>4.3.24.RELEASE</org.springframework.version>
-        <org.springsecurity.version>4.2.13.RELEASE</org.springsecurity.version>
+        <org.springsecurity.version>4.2.9.RELEASE</org.springsecurity.version>
         <digester.version>1.6</digester.version>
         <commons.fileupload>1.3.3</commons.fileupload>
-        <commons.io.version>2.4</commons.io.version>
+        <commons.io.version>2.7</commons.io.version>
         <common.service.api.version>1.0.0</common.service.api.version>
         <meerkat.web.version>2.2.3</meerkat.web.version>
         <joda.time.version>2.3</joda.time.version>
@@ -49,19 +49,19 @@
         <mockito.version>1.9.5</mockito.version>
         <powermock.version>1.6.4</powermock.version>
         <qtracer.version>1.4.2</qtracer.version>
-        <poi.version>3.9</poi.version>
-        <jackson.version>2.9.9</jackson.version>
+        <poi.version>4.1.2</poi.version>
+        <jackson.version>2.12.1</jackson.version>
         <eureka.version>1.7.0</eureka.version>
         <jersey.version>1.19.1</jersey.version>
         <apache-common-version>1.10</apache-common-version>
         <javax.servlet.version>3.0.1</javax.servlet.version>
         <async.http.client.version>1.9.39</async.http.client.version>
-        <guava.version>23.0</guava.version>
+        <guava.version>30.0-jre</guava.version>
         <org.slf4j.version>1.7.5</org.slf4j.version>
-        <logback.version>1.0.13</logback.version>
-        <netty4.version>4.0.24.Final</netty4.version>
+        <logback.version>1.2.0</logback.version>
+        <netty4.version>4.1.42.Final</netty4.version>
         <netty3.version>3.9.5.Final</netty3.version>
-        <tomcat.version>7.0.94</tomcat.version>
+        <tomcat.version>7.0.107</tomcat.version>
         <prometheus.client.version>0.6.0</prometheus.client.version>
 
         <gson.version>2.6.2</gson.version>
@@ -300,7 +300,7 @@
             <dependency>
                 <groupId>commons-collections</groupId>
                 <artifactId>commons-collections</artifactId>
-                <version>3.2.1</version>
+                <version>3.2.2</version>
             </dependency>
 
             <dependency>
@@ -394,7 +394,7 @@
             <dependency>
                 <groupId>org.yaml</groupId>
                 <artifactId>snakeyaml</artifactId>
-                <version>1.17</version>
+                <version>1.26</version>
             </dependency>
 
             <dependency>
@@ -413,7 +413,7 @@
             <dependency>
                 <groupId>com.thoughtworks.xstream</groupId>
                 <artifactId>xstream</artifactId>
-                <version>1.4.10</version>
+                <version>1.4.18</version>
                 <scope>compile</scope>
                 <exclusions>
                     <exclusion>
@@ -611,7 +611,7 @@
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
-                <version>8.0.11</version>
+                <version>8.0.16</version>
                 <scope>runtime</scope>
             </dependency>
 

@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static org.apache.poi.ss.usermodel.Cell.*;
+import static org.apache.poi.ss.usermodel.CellType.*;
 
 /**
  * @author keli.wang
@@ -67,13 +67,13 @@ public class TemplateExcelParseServiceImpl implements TemplateExcelParseService 
         }
 
         switch (cell.getCellType()) {
-            case CELL_TYPE_STRING:
+            case STRING:
                 return cell.getStringCellValue();
-            case CELL_TYPE_BLANK:
+            case BLANK:
                 return "";
-            case CELL_TYPE_BOOLEAN:
+            case BOOLEAN:
                 return Boolean.toString(cell.getBooleanCellValue());
-            case CELL_TYPE_NUMERIC:
+            case NUMERIC:
                 final DataFormatter formatter = new DataFormatter();
                 return formatter.formatCellValue(cell);
             default:
