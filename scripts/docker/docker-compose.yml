@@ -34,7 +34,7 @@ services:
         entrypoint: /usr/local/tomcat/entrypoint.sh -d qconfig_mysql:3306 -c 'sh /usr/local/tomcat/bin/catalina.sh run';
 
     qconfig_mysql:
-        image: mysql:5.7
+        image: mysql/mysql-server:5.7
         container_name: qconfig_mysql
         volumes:
             - ./sql:/docker-entrypoint-initdb.d

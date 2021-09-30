@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: qconfig-admin-rs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: qconfig-admin
+  template:
+    metadata:
+      labels:
+        app: qconfig-admin
+    spec:
+      containers:
+        - name: qconfig-admin
+          image: okracode/qconfig-quick-start:admin
+          ports:
+          - containerPort: 8083
+          env:
+          - name: SLEEP_SECOND
+            value: "40"
+          command: ["/usr/local/tomcat/entrypoint.sh", "-d", "qconfig-server:8080", "-c", "sh /usr/local/tomcat/bin/startup.sh;"]
