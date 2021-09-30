@@ -14,10 +14,10 @@ spec:
     spec:
       containers:
         - name: qconfig-server
-          image: deepdown/qconfig-quick-start:server
+          image: okracode/qconfig-quick-start:server
           ports:
           - containerPort: 8080
           env:
           - name: SLEEP_SECOND
             value: "5"
-          command: [/usr/local/tomcat/entrypoint.sh -d qconfig_mysql:3306 -c 'sh /usr/local/tomcat/bin/catalina.sh run';]
+          command: ["/usr/local/tomcat/entrypoint.sh", "-d", "49.234.211.155:3306", "-c", "sh /usr/local/tomcat/bin/catalina.sh run;"]
